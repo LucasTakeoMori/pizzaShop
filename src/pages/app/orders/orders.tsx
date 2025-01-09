@@ -62,8 +62,9 @@ export function Orders(){
                                     <TableHead className="w-[132px]"></TableHead>
                                 </TableRow>
                             </TableHeader>
+                            
                             <TableBody>
-                                {isLoadingOrders && <OrderTableSkeleton />}
+                                {isLoadingOrders && <OrderTableSkeleton length={10}/>}
 
                                 {result && result.orders.map(order => {
                                     return <OrderTableRow key={order.orderId} order={order}/>
