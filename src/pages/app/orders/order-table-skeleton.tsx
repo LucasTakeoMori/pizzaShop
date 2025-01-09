@@ -3,8 +3,12 @@ import { Search } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Button } from "@/components/ui/button"
 
-export function OrderTableSkeleton() {
-    return Array.from({length: 10}).map((_, index) => {
+type OrderTableSkeletonProps = {
+    length: number
+}
+
+export function OrderTableSkeleton({length}: OrderTableSkeletonProps) {
+    return Array.from({length: length}).map((_, index) => {
         return (
             <TableRow key={index}>
                 <TableCell>
