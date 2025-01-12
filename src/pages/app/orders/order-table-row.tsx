@@ -1,4 +1,4 @@
-import { Clock, Search, X } from "lucide-react";
+import { Clock, Search, X, MoveRight } from "lucide-react";
 import { TableRow, TableCell } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
@@ -133,6 +133,7 @@ export function OrderTableRow({ order }: OrderTableRowProps){
                         disabled={isAprroveingOrder}
                         onClick={() => approveOrderFn({ orderId: order.orderId })}
                         size={'xs'} 
+                        className="flex items-center gap-1"
                         >
                             Aprovar
 
@@ -145,6 +146,7 @@ export function OrderTableRow({ order }: OrderTableRowProps){
                         disabled={isDispatchingOrder}
                         onClick={() => dispatchlOrderFn({ orderId: order.orderId })}
                         size={'xs'} 
+                        className="flex items-center gap-1"
                         >
                             Em Entrega
 
@@ -156,7 +158,8 @@ export function OrderTableRow({ order }: OrderTableRowProps){
                         variant={'outline'}
                         disabled={isDeliveringOrder}
                         onClick={() => deliveringOrderFn({ orderId: order.orderId })}
-                        size={'xs'} 
+                        size={'xs'}
+                        className="flex items-center gap-1"
                         >
                             Entregue
                     </Button>

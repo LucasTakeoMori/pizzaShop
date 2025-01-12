@@ -54,6 +54,7 @@ export function RevenueChart() {
                     <DateRangePicker date={dateRange} onDateChange={setDateRange}/>
                 </div>
             </CardHeader>
+            
             <CardContent>
                 {dailyRevenueInPeriod ? (
                     <ResponsiveContainer width="100%" height={240}>
