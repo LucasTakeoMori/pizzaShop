@@ -47,9 +47,7 @@ test('filter order by id', async ({ page }) => {
     await page.getByPlaceholder('ID do pedido').fill('order-1')
     await page.getByRole('button', { name: 'Filtrar' }).click()
 
-    expect(page.getByRole('cell', { name: 'order-1', exact: true })).toBeVisible()
-
-
+    await expect(page.getByRole('cell', { name: 'order-1', exact: true })).toBeVisible()
 });
 
 test('filter order by customer name', async ({ page }) => {
@@ -58,7 +56,7 @@ test('filter order by customer name', async ({ page }) => {
     await page.getByPlaceholder('Nome do cliente').fill('Customer 10')
     await page.getByRole('button', { name: 'Filtrar' }).click()
 
-    expect(page.getByRole('cell', { name: 'Customer 10', exact: true })).toBeVisible()
+    await expect(page.getByRole('cell', { name: 'Customer 10', exact: true })).toBeVisible()
 });
 
 test('filter order by status', async ({ page }) => {
@@ -69,11 +67,9 @@ test('filter order by status', async ({ page }) => {
 
     await page.getByRole('button', { name: 'Filtrar' }).click()
 
-    const tableRows = await page.getByRole('cell', { name: 'Pendente', exact: true }).all()
+    const tableRows =  page.getByRole('cell', { name: 'Pendente', exact: true })
 
-    expect(tableRows).toHaveLength(10)
-
-    await page.waitForTimeout(2000)
+    await expect(tableRows).toHaveCount(10)
 });
 
 test('get order detail', async ({ page }) => {
@@ -81,8 +77,6 @@ test('get order detail', async ({ page }) => {
 
     await page.getByRole('row', { name: 'Detalhes do Pedido order-1 h' }).getByRole('button').first().click()
     
-    expect(page.getByRole('heading', { name: 'ID do pedido: order-' })).toBeVisible()
-
-    await page.waitForTimeout(2000)
+    await expect(page.getByRole('heading', { name: 'ID do pedido: order-' })).toBeVisible()
 });
 
