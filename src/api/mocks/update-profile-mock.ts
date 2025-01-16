@@ -7,7 +7,7 @@ export const updateProfileMock = http.post<never, UpdateProfileBody>(
     async ({ request }) => {
         const { name } = await request.json()
 
-        if (name === 'Rocket Pizza') {
+        if (name === 'ia assistant') {
             return new HttpResponse(null, { status: 204 })
         }
 

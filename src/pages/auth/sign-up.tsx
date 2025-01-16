@@ -43,7 +43,7 @@ export function SignUp(){
                     },
                 })
             }catch{
-                toast.error('Erro ao cadastrar Restaurante')
+                toast.error('Erro ao cadastrar o restaurante')
             }
     }
 
